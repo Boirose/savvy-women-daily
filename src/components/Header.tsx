@@ -3,72 +3,52 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const links = [
+    ["Finance","/finance"],
+    ["Side Hustle","/side-hustle"],
+    ["Health","/health"],
+    ["Beauty","/beauty"],
+    ["Home Decor","/home-decor"],
+  ];
 
   return (
-    <header className="bg-burgundy text-white sticky top-0 z-50 shadow-lg">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="font-playfair text-2xl font-bold text-gold">
+    <header style={{background:"#FFFFFF", color:"#1A0A2E", position:"sticky", top:0, zIndex:50, borderBottom:"1px solid #e5e7eb"}}>
+      <div style={{maxWidth:"1200px", margin:"0 auto", padding:"1rem 1.25rem", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+        <Link href="/" style={{fontSize:"1.5rem", fontWeight:"bold", color:"#1A0A2E", textDecoration:"none"}}>
           Savvy Women Daily
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-6 text-sm font-medium">
-          <Link href="/finance" className="hover:text-gold transition">
-            Finance
-          </Link>
-          <Link href="/side-hustle" className="hover:text-gold transition">
-            Side Hustle
-          </Link>
-          <Link href="/health" className="hover:text-gold transition">
-            Health
-          </Link>
-          <Link href="/beauty" className="hover:text-gold transition">
-            Beauty
-          </Link>
-          <Link href="/home-decor" className="hover:text-gold transition">
-            Home
-          </Link>
-          <Link
-            href="/blog"
-            className="bg-gold text-burgundy px-4 py-1 rounded-full font-bold hover:bg-white transition"
-          >
+        <nav style={{display:"none", gap:"1.5rem", fontSize:"14px", fontWeight:500}} className="desktop-nav">
+          {links.map(([label,href])=>(
+            <Link key={href} href={href} style={{color:"#1A0A2E", textDecoration:"none"}}>{label}</Link>
+          ))}
+          <Link href="/blog" style={{background:"#D4A853", color:"#1A0A2E", padding:"6px 16px", borderRadius:"999px", fontWeight:"bold", textDecoration:"none"}}>
             All Posts
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? "✕" : "☰"}
+        <button onClick={()=>setOpen(!open)} style={{background:"none", border:"none", fontSize:"24px", color:"#1A0A2E", cursor:"pointer"}} className="mobile-toggle">
+          {open ? "✕" : "☰"}
         </button>
       </div>
 
-      {/* Mobile Nav */}
-      {menuOpen && (
-        <div className="md:hidden bg-burgundy border-t border-rose px-4 pb-4 flex flex-col gap-3 text-sm">
-          {[
-            ["Finance", "/finance"],
-            ["Side Hustle", "/side-hustle"],
-            ["Health", "/health"],
-            ["Beauty", "/beauty"],
-            ["Home", "/home-decor"],
-            ["All Posts", "/blog"],
-          ].map(([label, href]) => (
-            <Link
-              key={href}
-              href={href}
-              className="hover:text-gold transition py-1 border-b border-rose"
-              onClick={() => setMenuOpen(false)}
-            >
+      {open && (
+        <div style={{padding:"0 1.25rem 1rem", display:"flex", flexDirection:"column", gap:"0.75rem", borderTop:"1px solid #e5e7eb"}}>
+          {[...links,["All Posts","/blog"]].map(([label,href])=>(
+            <Link key={href} href={href} style={{color:"#1A0A2E", textDecoration:"none", padding:"0.4rem 0", borderBottom:"1px solid #f3f4f6"}} onClick={()=>setOpen(false)}>
               {label}
             </Link>
           ))}
         </div>
       )}
+
+      <style>{`
+        @media (min-width: 768px) {
+          .desktop-nav { display: flex !important; }
+          .mobile-toggle { display: none !important; }
+        }
+      `}</style>
     </header>
   );
 }

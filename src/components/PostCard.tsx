@@ -1,78 +1,36 @@
 import Link from "next/link";
 
-interface PostCardProps {
+interface Props {
   title: string;
   description: string;
   slug: string;
   category: string;
   date: string;
-  image?: string;
 }
 
-const categoryColors: Record<string, string> = {
-  finance: "bg-burgundy",
-  "side-hustle": "bg-darkgreen",
-  health: "bg-navy",
-  beauty: "bg-rose",
-  "home-decor": "bg-brown",
+const labels: Record<string,string> = {
+  finance:"Finance",
+  "side-hustle":"Side Hustle",
+  health:"Health",
+  beauty:"Beauty",
+  "home-decor":"Home Decor",
 };
 
-const categoryLabels: Record<string, string> = {
-  finance: "Finance",
-  "side-hustle": "Side Hustle",
-  health: "Health",
-  beauty: "Beauty",
-  "home-decor": "Home Decor",
-};
-
-export default function PostCard({
-  title,
-  description,
-  slug,
-  category,
-  date,
-  image,
-}: PostCardProps) {
+export default function PostCard({title,description,slug,category,date}:Props) {
   return (
-    <Link href={`/blog/${slug}`} className="group block">
-      <article className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
-        {/* Image */}
-        <div className="h-48 bg-gray-100 relative overflow-hidden">
-          {image ? (
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          ) : (
-            <div
-              className={`w-full h-full ${categoryColors[category] || "bg-burgundy"} flex items-center justify-center`}
-            >
-              <span className="text-white font-playfair text-xl font-bold text-center px-4">
-                {title}
-              </span>
-            </div>
-          )}
-          {/* Category badge */}
-          <span
-            className={`absolute top-3 left-3 ${categoryColors[category] || "bg-burgundy"} text-white text-xs font-bold px-3 py-1 rounded-full`}
-          >
-            {categoryLabels[category] || category}
+    <Link href={`/blog/${slug}`} style={{textDecoration:"none", display:"block"}}>
+      <article style={{background:"#FFFFFF", borderRadius:"16px", boxShadow:"0 1px 3px rgba(0,0,0,0.1)", overflow:"hidden", height:"100%"}}>
+        <div style={{height:"190px", background:"#1A0A2E", display:"flex", alignItems:"center", justifyContent:"center", position:"relative", padding:"1rem"}}>
+          <span style={{color:"#FFFFFF", fontWeight:"bold", textAlign:"center", fontSize:"18px", lineHeight:"1.4"}}>{title}</span>
+          <span style={{position:"absolute", top:"12px", left:"12px", background:"#D4A853", color:"#1A0A2E", fontSize:"11px", fontWeight:"bold", padding:"3px 12px", borderRadius:"999px"}}>
+            {labels[category] || category}
           </span>
         </div>
-
-        {/* Content */}
-        <div className="p-5">
-          <p className="text-xs text-gray-400 mb-2">{date}</p>
-          <h3 className="font-playfair text-lg font-bold text-gray-900 mb-2 group-hover:text-burgundy transition leading-snug">
-            {title}
-          </h3>
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-            {description}
-          </p>
-          <span className="inline-block mt-4 text-burgundy text-sm font-bold group-hover:underline">
-            Read More →
-          </span>
+        <div style={{padding:"1.25rem"}}>
+          <p style={{fontSize:"12px", color:"#9ca3af", marginBottom:"0.5rem"}}>{date}</p>
+          <h3 style={{fontWeight:"bold", color:"#1A0A2E", marginBottom:"0.5rem", fontSize:"16px", lineHeight:"1.4"}}>{title}</h3>
+          <p style={{color:"#6b7280", fontSize:"13px", lineHeight:"1.6", margin:0}}>{description}</p>
+          <span style={{display:"inline-block", marginTop:"1rem", color:"#1A0A2E", fontSize:"13px", fontWeight:"bold"}}>Read More →</span>
         </div>
       </article>
     </Link>
