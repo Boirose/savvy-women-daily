@@ -62,17 +62,17 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/blog"
-              className="bg-yellow-400 text-purple-900 px-8 py-3 rounded-full font-bold hover:bg-white transition text-sm"
-            >
-              Read Latest Posts →
-            </Link>
-            <Link
-              href="https://savvywomendaily.beehiiv.com"
-              className="border-2 border-yellow-400 text-yellow-400 px-8 py-3 rounded-full font-bold hover:bg-yellow-400 hover:text-purple-900 transition text-sm"
-            >
-              Get Free Budget Tracker
-            </Link>
+  href="/blog"
+  className="bg-yellow-400 text-purple-900 px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition text-sm"
+>
+  Read Latest Posts →
+</Link>
+<Link
+  href="/newsletter"
+  className="border-2 border-yellow-400 text-yellow-400 px-8 py-3 rounded-full font-bold hover:bg-yellow-400 hover:text-black transition text-sm"
+>
+  Get Free Budget Tracker
+</Link>
           </div>
         </div>
       </section>
@@ -139,12 +139,12 @@ export default function HomePage() {
             Join 4,200+ savvy women getting weekly money tips, beauty finds, and
             wellness advice straight to their inbox. Free budget tracker included.
           </p>
-          <Link
-            href="https://savvywomendaily.beehiiv.com"
-            className="bg-yellow-400 text-purple-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-white transition inline-block"
-          >
-            Yes, Send Me the Tracker! →
-          </Link>
+      <Link
+  href="/newsletter"
+  className="bg-yellow-400 text-purple-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition inline-block"
+>
+  Yes, Send Me the Tracker! →
+</Link>
           <p className="text-xs text-pink-200 mt-4 opacity-60">
             No spam. Unsubscribe anytime.
           </p>

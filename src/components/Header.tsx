@@ -23,9 +23,9 @@ export default function Header() {
           {links.map(([label,href])=>(
             <Link key={href} href={href} style={{color:"#1A0A2E", textDecoration:"none"}}>{label}</Link>
           ))}
-          <Link href="/blog" style={{background:"#D4A853", color:"#1A0A2E", padding:"6px 16px", borderRadius:"999px", fontWeight:"bold", textDecoration:"none"}}>
-            All Posts
-          </Link>
+          <Link href="/blog" className="hover:text-black" style={{background:"#D4A853", color:"#1A0A2E", padding:"6px 16px", borderRadius:"999px", fontWeight:"bold", textDecoration:"none"}}>
+  All Posts
+</Link>
         </nav>
 
         <button onClick={()=>setOpen(!open)} style={{background:"none", border:"none", fontSize:"24px", color:"#1A0A2E", cursor:"pointer"}} className="mobile-toggle">
