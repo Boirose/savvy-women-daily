@@ -60,20 +60,20 @@ export default function HomePage() {
             Practical tips to help women build smarter money habits, find side
             income, and live their best life — without the overwhelm.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-  href="/blog"
-  className="bg-yellow-400 text-purple-900 px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition text-sm"
->
-  Read Latest Posts →
-</Link>
-<Link
-  href="/newsletter"
-  className="border-2 border-yellow-400 text-yellow-400 px-8 py-3 rounded-full font-bold hover:bg-yellow-400 hover:text-black transition text-sm"
->
-  Get Free Budget Tracker
-</Link>
-          </div>
+ <div className="flex flex-col sm:flex-row gap-4 justify-center">
+  <Link
+    href="/blog"
+    style={{background:"#D4A853", color:"#1A0A2E", padding:"12px 32px", borderRadius:"999px", fontWeight:700, fontSize:"14px", textDecoration:"none", display:"inline-block", textAlign:"center"}}
+  >
+    Read Latest Posts →
+  </Link>
+  <Link
+    href="/newsletter"
+    style={{background:"#D4A853", color:"#1A0A2E", padding:"12px 32px", borderRadius:"999px", fontWeight:700, fontSize:"14px", textDecoration:"none", display:"inline-block", textAlign:"center"}}
+  >
+    Get Free Budget Tracker
+  </Link>
+</div>
         </div>
       </section>
 
@@ -139,9 +139,9 @@ export default function HomePage() {
             Join 4,200+ savvy women getting weekly money tips, beauty finds, and
             wellness advice straight to their inbox. Free budget tracker included.
           </p>
-      <Link
+ <Link
   href="/newsletter"
-  className="bg-yellow-400 text-purple-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition inline-block"
+  style={{background:"#D4A853", color:"#1A0A2E", padding:"14px 36px", borderRadius:"999px", fontWeight:700, fontSize:"17px", textDecoration:"none", display:"inline-block"}}
 >
   Yes, Send Me the Tracker! →
 </Link>
