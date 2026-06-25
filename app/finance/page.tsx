@@ -2,6 +2,11 @@ import { getPostsByCategory } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Personal Finance Tips for Women | Savvy Women Daily",
+  description: "Budgeting tips, income ideas, savings challenges and money habits that build real wealth for women in 2026.",
+};
+
 export default function FinancePage() {
   const posts = getPostsByCategory("finance");
   return (

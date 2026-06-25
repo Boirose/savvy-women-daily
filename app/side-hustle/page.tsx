@@ -2,6 +2,11 @@ import { getPostsByCategory } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Side Hustle Ideas for Women | Savvy Women Daily",
+  description: "Business ideas, ways to make money online, freelancing tips and passive income strategies for women in 2026.",
+};
+
 export default function SideHustlePage() {
   const posts = getPostsByCategory("side-hustle");
   return (

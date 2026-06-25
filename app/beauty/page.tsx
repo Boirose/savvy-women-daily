@@ -2,6 +2,11 @@ import { getPostsByCategory } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Beauty & Skincare Tips for Women | Savvy Women Daily",
+  description: "Skincare routines, natural hair care, glow up tips and beauty products for melanin-rich skin in 2026.",
+};
+
 export default function BeautyPage() {
   const posts = getPostsByCategory("beauty");
   return (

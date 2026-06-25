@@ -2,6 +2,11 @@ import { getPostsByCategory } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Health & Wellness Tips for Women | Savvy Women Daily",
+  description: "Morning routines, meal prep, workout schedules and healthy habits for busy women in 2026.",
+};
+
 export default function HealthPage() {
   const posts = getPostsByCategory("health");
   return (
