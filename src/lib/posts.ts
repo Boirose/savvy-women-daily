@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const postsDirectory = path.join(process.cwd(), "posts");
+const postsDir = path.join(process.cwd(), "posts");
 
 export interface Post {
   slug: string;
@@ -10,22 +10,17 @@ export interface Post {
   date: string;
   description: string;
   category: string;
-  image?: string;
+  image: string | null;
   content: string;
 }
 
 export function getAllPosts(): Post[] {
-  if (!fs.existsSync(postsDirectory)) return [];
-  
-  const fileNames = fs.readdirSync(postsDirectory);
-  const posts = fileNames
-    .filter((file) => file.endsWith(".mdx") || file.endsWith(".md"))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.(mdx|md)$/, "");
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data, content } = matter(fileContents);
-
+  if (!fs.existsSync(postsDir)) return [];
+  return fs.readdirSync(postsDir)
+    .filter(f => f.endsWith(".mdx") || f.endsWith(".md"))
+    .map(f => {
+      const slug = f.replace(/\.(mdx|md)$/, "");
+      const { data, content } = matter(fs.readFileSync(path.join(postsDir, f), "utf8"));
       return {
         slug,
         title: data.title || "",
@@ -35,26 +30,20 @@ export function getAllPosts(): Post[] {
         image: data.image || null,
         content,
       };
-    });
-
-  return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getPostBySlug(slug: string): Post | null {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.mdx`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const { data, content } = matter(fileContents);
-
+    const { data, content } = matter(fs.readFileSync(path.join(postsDir, `${slug}.mdx`), "utf8"));
     return {
       slug,
       title: data.title,
       date: data.date,
       description: data.description,
       category: data.category,
-      image: data.image,
+      image: data.image || null,
       content,
     };
   } catch {
@@ -63,5 +52,5 @@ export function getPostBySlug(slug: string): Post | null {
 }
 
 export function getPostsByCategory(category: string): Post[] {
-  return getAllPosts().filter((post) => post.category === category);
+  return getAllPosts().filter(p => p.category === category);
 }
