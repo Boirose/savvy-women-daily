@@ -65,6 +65,12 @@ export default async function Page({ params }: Props) {
         {post.title}
       </h1>
 
+      {post.image && (
+  <div style={{ width: "100%", height: "320px", borderRadius: "16px", overflow: "hidden", margin: "1.5rem 0" }}>
+    <img src={post.image} alt={post.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+  </div>
+)}
+
       <div style={{ color:"#9ca3af", fontSize:"14px", marginBottom:"2rem", paddingBottom:"2rem", borderBottom:"1px solid #e5e7eb" }}>
         {post.date} • Savvy Women Daily • {Math.ceil(post.content.split(" ").length / 200)} min read
       </div>

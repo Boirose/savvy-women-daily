@@ -46,7 +46,14 @@ export default function HomePage() {
   return (
     <div>
       {/* HERO */}
-      <section className="bg-purple-900 text-white py-20 px-4">
+      <section style={{
+  position: "relative",
+  background: "linear-gradient(rgba(26,10,46,0.90), rgba(26,10,46,0.94)), url('https://images.unsplash.com/photo-1556228720-da4e85aceb27?w=1600&q=60')",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  color: "white",
+  padding: "5rem 1rem"
+}}>
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-yellow-400 font-montserrat text-sm font-bold uppercase tracking-widest mb-4">
             Welcome to Savvy Women Daily
