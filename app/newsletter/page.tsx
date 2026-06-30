@@ -14,11 +14,10 @@ export default function NewsletterPage() {
       </p>
 
       {/* MAILERLITE EMBED GOES HERE — paste your form embed code below */}
-      <div style={{background:"#F9F7FF", border:"1px solid #e5e7eb", borderRadius:"16px", padding:"2rem"}}>
-        <p style={{color:"#9ca3af", fontSize:"14px"}}>
-          [ Paste your MailerLite embedded form code here ]
-        </p>
-      </div>
+      <div 
+  style={{background:"#F9F7FF", border:"1px solid #e5e7eb", borderRadius:"16px", padding:"2rem"}}
+  dangerouslySetInnerHTML={{ __html: `https://preview.mailerlite.io/forms/2456495/191679628960597740/share` }}
+/>
 
       <p style={{color:"#9ca3af", fontSize:"13px", marginTop:"1.5rem"}}>
         No spam. Unsubscribe anytime.
