@@ -18,13 +18,13 @@ export default function Footer() {
           <h4 style={{fontWeight:700, color:"#1A0A2E", marginBottom:"0.75rem", fontSize:"14px"}}>Topics</h4>
           <ul style={{listStyle:"none", padding:0, margin:0, display:"flex", flexDirection:"column", gap:"0.5rem"}}>
             {[
-              ["Finance","/finance"],
-              ["Side Hustle","/side-hustle"],
-              ["Health","/health"],
-              ["Beauty","/beauty"],
-              ["Home Decor","/home-decor"],
-              ["All Posts","/blog"],
-            ].map(([label,href])=>(
+  ["Finance","/finance"],
+  ["Health","/health"],
+  ["Beauty","/beauty"],
+  ["Home Decor","/home-decor"],
+  ["Fashion","/fashion"],
+  ["All Posts","/blog"],
+].map(([label,href])=>(
               <li key={href}>
                 <Link href={href} className="hover:text-[#D4A853]" style={{color:"#4b5563", textDecoration:"none", fontSize:"13px"}}>{label}</Link>
               </li>

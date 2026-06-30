@@ -4,39 +4,34 @@ import { getAllPosts } from "@/lib/posts";
 
 const categories = [
   {
-    name: "Personal Finance",
+    name: "Finance",
     href: "/finance",
-    color: "bg-purple-900",
     emoji: "💰",
-    desc: "Budget, save & invest smarter",
+    desc: "Budget, save & build income outside your 9-5",
   },
   {
-    name: "Side Hustle",
-    href: "/side-hustle",
-    color: "bg-green-900",
-    emoji: "💼",
-    desc: "Build income outside your 9-5",
-  },
-  {
-    name: "Health & Wellness",
+    name: "Health",
     href: "/health",
-    color: "bg-blue-900",
     emoji: "🌿",
     desc: "Healthy habits that actually stick",
   },
   {
-    name: "Beauty & Skincare",
+    name: "Beauty",
     href: "/beauty",
-    color: "bg-pink-900",
     emoji: "✨",
     desc: "Glow up with products that work",
   },
   {
-    name: "Home & Decor",
+    name: "Home Decor",
     href: "/home-decor",
-    color: "bg-amber-900",
     emoji: "🏠",
     desc: "Aesthetic spaces on any budget",
+  },
+  {
+    name: "Fashion",
+    href: "/fashion",
+    emoji: "👗",
+    desc: "Outfits and jewelry that look expensive",
   },
 ];
 
@@ -47,13 +42,13 @@ export default function HomePage() {
     <div>
       {/* HERO */}
       <section style={{
-  position: "relative",
-  background: "linear-gradient(rgba(26,10,46,0.90), rgba(26,10,46,0.94)), url('https://images.unsplash.com/photo-1556228720-da4e85aceb27?w=1600&q=60')",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  color: "white",
-  padding: "5rem 1rem"
-}}>
+        position: "relative",
+        background: "linear-gradient(rgba(26,10,46,0.90), rgba(26,10,46,0.94)), url('https://images.unsplash.com/photo-1556228720-da4e85aceb27?w=1600&q=60')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        color: "white",
+        padding: "5rem 1rem"
+      }}>
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-yellow-400 font-montserrat text-sm font-bold uppercase tracking-widest mb-4">
             Welcome to Savvy Women Daily
@@ -67,43 +62,67 @@ export default function HomePage() {
             Practical tips to help women build smarter money habits, find side
             income, and live their best life — without the overwhelm.
           </p>
- <div className="flex flex-col sm:flex-row gap-4 justify-center">
-  <Link
-    href="/blog"
-    style={{background:"#D4A853", color:"#1A0A2E", padding:"12px 32px", borderRadius:"999px", fontWeight:700, fontSize:"14px", textDecoration:"none", display:"inline-block", textAlign:"center"}}
-  >
-    Read Latest Posts →
-  </Link>
-  <Link
-    href="/newsletter"
-    style={{background:"#D4A853", color:"#1A0A2E", padding:"12px 32px", borderRadius:"999px", fontWeight:700, fontSize:"14px", textDecoration:"none", display:"inline-block", textAlign:"center"}}
-  >
-    Get Free Budget Tracker
-  </Link>
-</div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/blog"
+              style={{background:"#D4A853", color:"#1A0A2E", padding:"12px 32px", borderRadius:"999px", fontWeight:700, fontSize:"14px", textDecoration:"none", display:"inline-block", textAlign:"center"}}
+            >
+              Read Latest Posts →
+            </Link>
+            <Link
+              href="/newsletter"
+              style={{background:"#D4A853", color:"#1A0A2E", padding:"12px 32px", borderRadius:"999px", fontWeight:700, fontSize:"14px", textDecoration:"none", display:"inline-block", textAlign:"center"}}
+            >
+              Get Free Budget Tracker
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* CATEGORIES */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-playfair text-3xl font-bold text-center mb-10 text-gray-900">
+      <section style={{padding:"4rem 1.25rem", background:"#FFFFFF"}}>
+        <div style={{maxWidth:"1200px", margin:"0 auto"}}>
+          <h2 style={{fontSize:"2rem", fontWeight:"bold", textAlign:"center", marginBottom:"3rem", color:"#1A0A2E"}}>
             What Would You Like to Explore?
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(220px, 1fr))", gap:"1.5rem"}}>
             {categories.map((cat) => (
-              <Link
-                key={cat.href}
-                href={cat.href}
-                className={`${cat.color} text-white rounded-2xl p-5 text-center hover:opacity-90 transition group`}
-              >
-                <div className="text-3xl mb-2">{cat.emoji}</div>
-                <h3 className="font-bold text-sm mb-1">{cat.name}</h3>
-                <p className="text-xs opacity-80">{cat.desc}</p>
+              <Link key={cat.href} href={cat.href} style={{textDecoration:"none"}} className="category-card">
+                <div style={{
+                  background:"#FFFFFF",
+                  border:"2px solid #e5e7eb",
+                  borderRadius:"16px",
+                  padding:"2rem 1.5rem",
+                  textAlign:"center",
+                  height:"100%",
+                  transition:"border-color 0.2s, transform 0.2s"
+                }}>
+                  <div style={{
+                    width:"64px", height:"64px", borderRadius:"50%",
+                    background:"#1A0A2E", display:"flex", alignItems:"center",
+                    justifyContent:"center", margin:"0 auto 1rem", fontSize:"28px"
+                  }}>
+                    {cat.emoji}
+                  </div>
+                  <h3 style={{fontSize:"1.1rem", fontWeight:"bold", color:"#1A0A2E", marginBottom:"0.5rem"}}>
+                    {cat.name}
+                  </h3>
+                  <p style={{fontSize:"14px", color:"#6b7280", margin:0, lineHeight:"1.5"}}>
+                    {cat.desc}
+                  </p>
+                  <div style={{width:"32px", height:"3px", background:"#D4A853", margin:"1rem auto 0", borderRadius:"2px"}}></div>
+                </div>
               </Link>
             ))}
           </div>
         </div>
+
+        <style>{`
+          .category-card > div:hover {
+            border-color: #1A0A2E !important;
+            transform: translateY(-4px);
+          }
+        `}</style>
       </section>
 
       {/* LATEST POSTS */}
@@ -115,7 +134,8 @@ export default function HomePage() {
             </h2>
             <Link
               href="/blog"
-              className="text-purple-900 font-bold text-sm hover:underline"
+              style={{color:"#1A0A2E"}}
+              className="font-bold text-sm hover:underline"
             >
               View All →
             </Link>
@@ -137,7 +157,7 @@ export default function HomePage() {
       </section>
 
       {/* EMAIL CAPTURE */}
-      <section className="bg-purple-900 text-white py-16 px-4">
+      <section style={{background:"#1A0A2E", color:"white", padding:"4rem 1.25rem"}}>
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-playfair text-3xl font-bold mb-4">
             Get Your Free Budget Tracker
@@ -146,12 +166,12 @@ export default function HomePage() {
             Join 4,200+ savvy women getting weekly money tips, beauty finds, and
             wellness advice straight to their inbox. Free budget tracker included.
           </p>
- <Link
-  href="/newsletter"
-  style={{background:"#D4A853", color:"#1A0A2E", padding:"14px 36px", borderRadius:"999px", fontWeight:700, fontSize:"17px", textDecoration:"none", display:"inline-block"}}
->
-  Yes, Send Me the Tracker! →
-</Link>
+          <Link
+            href="/newsletter"
+            style={{background:"#D4A853", color:"#1A0A2E", padding:"14px 36px", borderRadius:"999px", fontWeight:700, fontSize:"17px", textDecoration:"none", display:"inline-block"}}
+          >
+            Yes, Send Me the Tracker! →
+          </Link>
           <p className="text-xs text-pink-200 mt-4 opacity-60">
             No spam. Unsubscribe anytime.
           </p>

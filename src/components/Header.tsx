@@ -5,12 +5,12 @@ import { useState } from "react";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const links = [
-    ["Finance","/finance"],
-    ["Side Hustle","/side-hustle"],
-    ["Health","/health"],
-    ["Beauty","/beauty"],
-    ["Home Decor","/home-decor"],
-  ];
+  ["Finance","/finance"],
+  ["Health","/health"],
+  ["Beauty","/beauty"],
+  ["Home Decor","/home-decor"],
+  ["Fashion","/fashion"],
+];
 
   return (
     <header style={{background:"#FFFFFF", color:"#1A0A2E", position:"sticky", top:0, zIndex:50, borderBottom:"1px solid #e5e7eb"}}>
